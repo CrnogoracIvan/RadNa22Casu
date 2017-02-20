@@ -23,7 +23,7 @@ import static rs.aleph.android.example22.tools.ReviewerTools.getConnectionType;
 public class SimpleSyncTask extends AsyncTask<Integer, Void, Integer>{
 
     private Context context;
-    private Integer statusKonekcije;
+   // private Integer statusKonekcije;
 
     public SimpleSyncTask(Context context) {
         this.context = context;
@@ -45,13 +45,13 @@ public class SimpleSyncTask extends AsyncTask<Integer, Void, Integer>{
     protected Integer doInBackground(Integer... params) {
         try {
             //simulacija posla koji se obavlja u pozadini i traje duze vreme
-            statusKonekcije = params[0];
+           // statusKonekcije = params[0];
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        return null;
+        return params[0];
     }
 
     /**
@@ -61,6 +61,6 @@ public class SimpleSyncTask extends AsyncTask<Integer, Void, Integer>{
      */
     @Override
     protected void onPostExecute(Integer products) {
-        Toast.makeText(context, "Sync done with " + getConnectionType(statusKonekcije), Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Sync done with " + getConnectionType(products), Toast.LENGTH_SHORT).show();
     }
 }

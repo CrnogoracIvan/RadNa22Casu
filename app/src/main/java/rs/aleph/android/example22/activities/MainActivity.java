@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements OnProductSelected
             case R.id.action_add:
                 try {
                     Toast.makeText(MainActivity.this, "Sinhronizacija pokrenuta u glavnoj niti. Nije dobro :(",Toast.LENGTH_SHORT).show();
-                    Thread.sleep(3000);
+                    Thread.sleep(6000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
