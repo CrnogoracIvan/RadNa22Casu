@@ -156,13 +156,14 @@ public class MainActivity extends AppCompatActivity implements OnProductSelected
             case R.id.action_refresh:
                 Toast.makeText(MainActivity.this, "Sinhronizacija dugo traje koristiti servis. dobro :)",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, SimpleService.class);
+
                 intent.putExtra("Konektiviti status", ReviewerTools.getConnectivityStatus(getApplicationContext()));
                 startService(intent);
                 break;
             case R.id.action_add:
                 try {
                     Toast.makeText(MainActivity.this, "Sinhronizacija pokrenuta u glavnoj niti. Nije dobro :(",Toast.LENGTH_SHORT).show();
-                    Thread.sleep(6000);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
