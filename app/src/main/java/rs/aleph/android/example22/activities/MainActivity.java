@@ -28,6 +28,7 @@ import rs.aleph.android.example22.fragments.DetailFragment;
 import rs.aleph.android.example22.fragments.ListFragment;
 import rs.aleph.android.example22.fragments.ListFragment.OnProductSelectedListener;
 import rs.aleph.android.example22.model.NavigationItem;
+import rs.aleph.android.example22.tools.ReviewerTools;
 
 public class MainActivity extends AppCompatActivity implements OnProductSelectedListener {
 
@@ -155,6 +156,7 @@ public class MainActivity extends AppCompatActivity implements OnProductSelected
             case R.id.action_refresh:
                 Toast.makeText(MainActivity.this, "Sinhronizacija dugo traje koristiti servis. dobro :)",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, SimpleService.class);
+                intent.putExtra("Konektiviti status", ReviewerTools.getConnectivityStatus(getApplicationContext()));
                 startService(intent);
                 break;
             case R.id.action_add:
